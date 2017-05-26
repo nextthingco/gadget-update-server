@@ -136,6 +136,6 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Following https://docs.djangoproject.com/en/1.11/topics/security/
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
