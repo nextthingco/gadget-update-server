@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Update(models.Model):
-    signature   = models.CharField(max_length=1024)
+    signature = models.CharField(max_length=1024)
+    owner     = models.ForeignKey('auth.User', related_name='updates', on_delete=models.CASCADE)
 
 class Manifest(models.Model):
     name        = models.CharField(max_length=100)

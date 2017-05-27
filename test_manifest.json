@@ -1,29 +1,34 @@
 {
-  "name": "Sparkle OS",
-  "version": "1.1.1",
-  "compatible": "Pyramid Speaker",
-  "date": "2017-05-23T12:47:49.012370955-07:00",
-  "artifacts": [
-    {
-      "target": "fdt",
-      "uri": "https://192.168.81.2:27182/static/ntc-gr8-crumb.dtb",
-      "type": "ubivol",
-      "size": 39081,
-      "checksum": "6f4883cbad441e3a935f12dc8c68581f17ae151a15fa01eff60f2c02ca52a600"
-    },
-    {
-      "target": "rootfs",
-      "uri": "https://192.168.81.2:27182/static/rootfs.ubifs",
-      "type": "ubivol",
-      "size": 70705152,
-      "checksum": "8d00d2f30c7e869b01c92d5839e6476b693fa4ef71ceb3f6fcf652fecda306cc"
-    },
-    {
-      "target": "kernel",
-      "uri": "https://192.168.81.2:27182/static/zImage",
-      "type": "ubivol",
-      "size": 2982496,
-      "checksum": "2bf954c5af29f10a3cb6e4716007b9550b689baade904cd9daa144420edd7abb"
-    }
-  ]
+    "name": "Sparkle OS",
+    "version": "1.1.1",
+    "compatible": "Pyramid Speaker",
+    "date": "2017-05-23T12:47:49.012370955-07:00",
+    "components": [
+        {
+            "type": "sys",
+            "checksum": "khgkjahsdgkjjkl;gjaslk;dj",
+            "artifacts": [
+              {
+                "target": "fdt",
+                "uri": "https://192.168.81.2:27182/static/ntc-gr8-crumb.dtb",
+                "type": "ubivol",
+                "size": 39081,
+                "checksum": "6f4883cbad441e3a935f12dc8c68581f17ae151a15fa01eff60f2c02ca52a600"
+              },
+              {
+                "target": "rootfs",
+                "uri": "https://192.168.81.2:27182/static/rootfs.ubifs",
+                "type": "ubivol",
+                "size": 70705152,
+                "checksum": "8d00d2f30c7e869b01c92d5839e6476b693fa4ef71ceb3f6fcf652fecda306cc"
+              },
+              {
+                "target": "kernel",
+                "uri": "https://192.168.81.2:27182/static/zImage",
+                "type": "ubivol",
+                "size": 2982496,
+                "checksum": "2bf954c5af29f10a3cb6e4716007b9550b689baade904cd9daa144420edd7abb"
+              }
+        }
+    ]
 }
