@@ -8,22 +8,32 @@ class Update(models.Model):
     owner     = models.ForeignKey('auth.User', related_name='updates', on_delete=models.CASCADE)
 
 class Manifest(models.Model):
-    name        = models.CharField(max_length=100)
-    version     = models.CharField(max_length=30)
-    date        = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(default="")
     compatible  = models.CharField(max_length=30)
+    date        = models.DateTimeField(auto_now_add=True)
     update      = models.OneToOneField(Update, related_name='manifest')
 
-class Artifact(models.Model):
-    target   = models.CharField(max_length=100)
+class Component(models.Model):
     type     = models.CharField(max_length=100)
-    size     = models.IntegerField()
+    name     = models.CharField(max_length=100)
+    version  = models.CharField(max_length=100)
     checksum = models.CharField(max_length=64)
-    uri      = models.CharField(max_length=256)
-    manifest = models.ForeignKey(Manifest, related_name='artifacts')
+    manifest = models.ForeignKey(Manifest, related_name='components')
 
-    class Meta:
-        ordering = ('uri',)
+class Artifact(models.Model):
+    target    = models.CharField(max_length=100)
+    type      = models.CharField(max_length=100)
+    size      = models.IntegerField()
+    checksum  = models.CharField(max_length=64)
+    uri       = models.CharField(max_length=256)
+    component = models.ForeignKey(Component, related_name='components')
 
-
+class Device(models.Model):
+    uuid          = models.UUIDField(primary_key=True)
+    product       = models.CharField(max_length=100)
+    serial        = models.CharField(max_length=100)
+    mac           = models.CharField(max_length=17)
+    cert          = models.CharField(max_length=1024)
+    first_seen    = models.DateTimeField(auto_now_add=True)
+    last_seen     = models.DateTimeField(auto_now_add=True)
+    last_ip       = models.CharField(max_length=15)
+    n_requests    = models.PositiveIntegerField(default=1)
